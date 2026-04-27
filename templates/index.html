@@ -1,26 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SmartPass</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>SmartiePass</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Flask CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<div class="container">
-    <h1>🔐 SmartPass</h1>
-    <p>Check your password strength instantly</p>
-
-    <input type="password" id="password" placeholder="Enter your password">
-
-    <div id="strength-bar">
-        <div id="strength-fill"></div>
-    </div>
-
-    <h3 id="strength-text"></h3>
-
-    <ul id="feedback"></ul>
+<!-- HEADER -->
+<div class="header">
+    <h1>🔐 SmartiePass</h1>
 </div>
 
-<script src="/static/script.js"></script>
+<!-- MAIN GRID -->
+<div class="main-layout">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <p>Build stronger passwords instantly</p>
+
+        <div class="password-container">
+            <input type="password" id="password" placeholder="Enter your password">
+            <i class="fa-solid fa-eye-slash" id="toggleIcon" onclick="togglePassword()"></i>
+        </div>
+
+        <div id="strength-bar">
+            <div id="strength-fill"></div>
+        </div>
+
+        <p id="strength-text"></p>
+        <p id="crack-time"></p>
+        <p id="ml-result"></p>
+
+        <button class="generate-btn" onclick="generatePassword()">
+            Generate Strong Password
+        </button>
+    </div>
+
+    <!-- MIDDLE PANEL -->
+    <div class="middle-panel">
+        <h3>⚠️ Issues</h3>
+        <ul id="feedback"></ul>
+
+        <h3>💡 Suggestions</h3>
+        <ul id="suggestions"></ul>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+        <h3>Password Comparison</h3>
+
+        <p id="generated-password" class="generated-text"></p>
+
+        <p>Your Password</p>
+        <div class="bar">
+            <div id="user-bar" class="fill red"></div>
+        </div>
+
+        <p>Generated Password</p>
+        <div class="bar">
+            <div id="generated-bar" class="fill green"></div>
+        </div>
+
+        <p id="comparison-text"></p>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>

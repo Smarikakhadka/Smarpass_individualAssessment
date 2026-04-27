@@ -1,33 +1,110 @@
 body {
-    font-family: Arial;
-    background: #0f172a;
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     color: white;
+}
+
+/* HEADER */
+.header {
     text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-.container {
-    margin-top: 100px;
+/* GRID */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
 }
 
-input {
+/* PANELS */
+.left-panel, .middle-panel, .right-panel {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* INPUT */
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    width: 100%;
+    box-sizing: border-box;
     padding: 12px;
-    width: 300px;
-    font-size: 16px;
+    padding-right: 45px;
+    border-radius: 10px;
+    border: none;
 }
 
+.password-container i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #cbd5f5;
+}
+
+/* STRENGTH BAR */
 #strength-bar {
-    width: 300px;
     height: 10px;
-    background: #333;
-    margin: 20px auto;
+    background: #334155;
+    border-radius: 10px;
+    margin: 20px 0;
 }
 
 #strength-fill {
-    height: 10px;
+    height: 100%;
     width: 0%;
-    background: red;
 }
 
-ul {
-    list-style: none;
+/* BUTTON */
+.generate-btn {
+    margin-top: 15px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background: #22c55e;
+    color: white;
+    cursor: pointer;
+}
+
+.generate-btn:hover {
+    background: #16a34a;
+}
+
+/* COMPARISON */
+.bar {
+    height: 12px;
+    background: #334155;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+}
+
+.red { background: red; }
+.green { background: #22c55e; }
+
+.generated-text {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
 }
